@@ -1,17 +1,25 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="relative min-h-screen">
+    <Header/>
+    <div id="nav">
+      <nav-bar/>
+    </div>
+    <router-view/>
+    <Footer/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NavBar from './components/NavBar.vue'
+import Footer from './components/Footer.vue'
+import Header from './components/Header.vue'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  name:'App',
+  components:{
+    Header,
+    NavBar,
+    Footer
   }
 }
 </script>
@@ -21,8 +29,39 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+
+.side-color {
+  color: #50BE8C;
+}
+
+.sub-color {
+  color: #566371;
+}
+
+.post-title {
+  color: #343F4A;
+}
+
+.post-sub-title {
+  color: #566371;
+}
+
+.button-color {
+  background-color: #50BE8C;
 }
 </style>
