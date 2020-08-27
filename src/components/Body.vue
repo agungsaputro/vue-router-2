@@ -10,7 +10,6 @@
           </div>
         </div>
       </paginate>
-      <paginate-links class="ml-20" for="homePagine" :limit="4"></paginate-links>   
     </div>
 </template>
 
