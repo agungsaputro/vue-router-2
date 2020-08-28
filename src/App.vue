@@ -38,15 +38,15 @@ export default {
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #08519b;
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #db5b10;
 }
 
 .side-color {
-  color: #50BE8C;
+  color: #c04e0b;
 }
 
 .sub-color {
