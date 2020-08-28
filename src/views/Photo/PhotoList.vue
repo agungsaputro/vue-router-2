@@ -1,12 +1,15 @@
 <template>
-  <div>
+  <div class="content inline-block w-full">
       <router-view></router-view>
+      <side-bar/>
   </div>
 </template>
 
-<script>
-
+<script>import SideBar from '../../components/SideBar.vue'
 export default {
     name: 'Photo',
+    components:{
+        SideBar
+    }
 }
 </script>
