@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import PostDetail from '../views/Post/PostDetail.vue'
-import AlbumDetail from '../views/Album/AlbumDetail.vue'
+
 
 const authenticate ="";
 
@@ -27,28 +26,41 @@ Vue.use(VueRouter)
     {
       path: '/posts/:id',
       name: 'Posts',
-      component: PostDetail
+      component: () => import(/* webpackChunkName: "Posts" */ '../views/Post/PostDetail.vue')
     },
     {
       path: '/albums',
-      name: 'Album',
-      component: () => import(/* webpackChunkName: "Album" */ '../views/Album/AlbumList.vue')
-    },
-    {
-      path: '/albums/:id',
-      name: 'Albums',
-      component: AlbumDetail
+      component: () => import(/* webpackChunkName: "Album" */ '../views/Album/AlbumList.vue'),
+      children:[
+        {
+          path:"",
+          name: 'Album',
+          component: () => import(/* webpackChunkName: "Album" */ '../views/Album/AlbumItem.vue'),
+        },
+        {
+          path: 'detail/:id',
+          name: 'Albums',
+          component: () => import(/* webpackChunkName: "Albums" */ '../views/Album/AlbumDetail.vue')
+        },
+      ]
     },
     {
       path: '/photos',
-      name: 'Photo',
       component: () => import(/* webpackChunkName: "Photo" */ '../views/Photo/PhotoList.vue'),
+      children:[
+        {
+          path:"",
+          name: 'Photo',
+          component: () => import(/* webpackChunkName: "Photo" */ '../views/Photo/PhotoItem.vue'),
+        },
+        {
+          path: 'detail/:id',
+          name: 'Photos',
+          component: () => import(/* webpackChunkName: "Photos" */ '../views/Photo/PhotoDetail.vue'),
+        },
+      ]
     },
-    {
-      path: 'detail/:id',
-      name: 'Photos',
-      component: () => import(/* webpackChunkName: "Photos" */ '../views/Photo/PhotoDetail.vue'),
-    },
+   
 ]
 
 const router = new VueRouter({
